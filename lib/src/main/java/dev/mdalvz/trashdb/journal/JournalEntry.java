@@ -15,18 +15,6 @@ public class JournalEntry implements Struct {
     private long offset;
     private final byte[] data = new byte[DATA_SIZE];
 
-    public long getOffset() {
-        return offset;
-    }
-
-    public void setOffset(long offset) {
-        this.offset = offset;
-    }
-
-    public byte[] getData() {
-        return data;
-    }
-
     @Override
     public void read(Serializer serializer, long srcOffset) throws IOException {
         setOffset(serializer.readLong(srcOffset + OFFSET_OFFSET));
@@ -37,6 +25,18 @@ public class JournalEntry implements Struct {
     public void write(Serializer serializer, long dstOffset) throws IOException {
         serializer.writeLong(dstOffset + OFFSET_OFFSET, getOffset());
         serializer.write(dstOffset + DATA_OFFSET, DATA_SIZE, 0, getData());
+    }
+
+    public long getOffset() {
+        return offset;
+    }
+
+    public void setOffset(long offset) {
+        this.offset = offset;
+    }
+
+    public byte[] getData() {
+        return data;
     }
 
 }

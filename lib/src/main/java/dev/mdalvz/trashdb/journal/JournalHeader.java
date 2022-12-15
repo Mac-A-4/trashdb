@@ -15,6 +15,20 @@ public class JournalHeader implements Struct {
     private long originalSize;
     private long entryCount;
 
+    @Override
+    public void read(Serializer serializer, long srcOffset) throws IOException {
+        setActive(serializer.readBoolean(srcOffset + ACTIVE_OFFSET));
+        setOriginalSize(serializer.readLong(srcOffset + ORIGINAL_SIZE_OFFSET));
+        setEntryCount(serializer.readLong(srcOffset + ENTRY_COUNT_OFFSET));
+    }
+
+    @Override
+    public void write(Serializer serializer, long dstOffset) throws IOException {
+        serializer.writeBoolean(dstOffset + ACTIVE_OFFSET, isActive());
+        serializer.writeLong(dstOffset + ORIGINAL_SIZE_OFFSET, getOriginalSize());
+        serializer.writeLong(dstOffset + ENTRY_COUNT_OFFSET, getEntryCount());
+    }
+
     public boolean isActive() {
         return active;
     }
@@ -37,20 +51,6 @@ public class JournalHeader implements Struct {
 
     public void setEntryCount(long entryCount) {
         this.entryCount = entryCount;
-    }
-
-    @Override
-    public void read(Serializer serializer, long srcOffset) throws IOException {
-        setActive(serializer.readBoolean(srcOffset + ACTIVE_OFFSET));
-        setOriginalSize(serializer.readLong(srcOffset + ORIGINAL_SIZE_OFFSET));
-        setEntryCount(serializer.readLong(srcOffset + ENTRY_COUNT_OFFSET));
-    }
-
-    @Override
-    public void write(Serializer serializer, long dstOffset) throws IOException {
-        serializer.writeBoolean(dstOffset + ACTIVE_OFFSET, isActive());
-        serializer.writeLong(dstOffset + ORIGINAL_SIZE_OFFSET, getOriginalSize());
-        serializer.writeLong(dstOffset + ENTRY_COUNT_OFFSET, getEntryCount());
     }
 
 }
