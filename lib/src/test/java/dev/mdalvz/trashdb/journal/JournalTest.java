@@ -3,7 +3,7 @@ package dev.mdalvz.trashdb.journal;
 import dev.mdalvz.trashdb.accessor.Accessor;
 import dev.mdalvz.trashdb.accessor.MemoryAccessor;
 import dev.mdalvz.trashdb.accessor.RandomDataHelper;
-import dev.mdalvz.trashdb.struct.Serializer;
+import dev.mdalvz.trashdb.serializer.Serializer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

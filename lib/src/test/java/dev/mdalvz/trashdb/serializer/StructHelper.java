@@ -1,4 +1,4 @@
-package dev.mdalvz.trashdb.struct;
+package dev.mdalvz.trashdb.serializer;
 
 import java.io.IOException;
 import java.util.Objects;

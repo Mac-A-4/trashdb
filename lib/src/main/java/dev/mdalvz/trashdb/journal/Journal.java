@@ -1,7 +1,7 @@
 package dev.mdalvz.trashdb.journal;
 
 import dev.mdalvz.trashdb.accessor.Accessor;
-import dev.mdalvz.trashdb.struct.Serializer;
+import dev.mdalvz.trashdb.serializer.Serializer;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package dev.mdalvz.trashdb.struct;
+package dev.mdalvz.trashdb.serializer;
 
 import dev.mdalvz.trashdb.accessor.Accessor;
 import dev.mdalvz.trashdb.accessor.RandomDataHelper;
